@@ -199,7 +199,6 @@ const onStateChange = <DataType,>({
   clientData,
   key,
 }: OnStateChangeType<DataType>) => {
-  console.log(state, 'masuuuk')
   match(state)
     .with({ status: "idle" }, () => {
       if (clientData[key]) {
