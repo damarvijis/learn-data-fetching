@@ -1,11 +1,12 @@
 import type { AppProps } from "next/app";
 import Head from "next/head";
 import {
-  useQuery,
   QueryClient,
   QueryClientProvider,
 } from 'react-query'
-
+import {
+  MyQueryProvider
+} from "@/my-query";
 
 export default function App({ Component, pageProps }: AppProps) {
   const queryClient = new QueryClient()
@@ -19,7 +20,9 @@ export default function App({ Component, pageProps }: AppProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <QueryClientProvider client={queryClient}>
-        <Component {...pageProps} />
+        <MyQueryProvider>
+          <Component {...pageProps} />
+        </MyQueryProvider>
       </QueryClientProvider>
     </>
   );
